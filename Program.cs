@@ -3,19 +3,12 @@
 namespace Tlapohualli
 {
     /// <summary>
-    /// This C# program allows you to convert integer number names (base 10) to their Nahuatl translation (base 20).
+    /// This program converts integer number names (base 10) to their Nahuatl translation (base 20).
     /// </summary>
     class Program
     {
-        #region Private members
-
         private static readonly string Quit = "quit";
         private static readonly string Instructions = $"Must be a number between {Translator.MinNumber} and {Translator.MaxNumber}.";
-
-        #endregion
-
-
-        #region Public methods
 
         public static void Main()
         {
@@ -27,15 +20,13 @@ namespace Tlapohualli
             Log.Info(Instructions);
 
             string selection = string.Empty;
-            int number = 0;
             while (selection.ToLowerInvariant() != Quit)
             {
                 Console.Write("Number: ");
                 selection = Console.ReadLine();
-                if (!int.TryParse(selection, out number))
+                if (!int.TryParse(selection, out int number))
                 {
                     Log.Error($"{Instructions}");
-                    number = -1;
                 }
                 else if (number >= Translator.MinNumber && number <= Translator.MaxNumber)
                 {
@@ -45,14 +36,10 @@ namespace Tlapohualli
                 else
                 {
                     Log.Error($"{Instructions}");
-                    number = -1;
                 }
             }
 
             Log.Info("Goodbye!");
         }
-
-        #endregion
     }
 }
-

@@ -2,38 +2,17 @@
 {
     public static class Translator
     {
-        #region Private members
-
         private static readonly int MaxDivider = 160000;
-
-        #endregion
-
-
-        #region Public members
 
         public static readonly int MinNumber = 0;
         public static readonly int MaxNumber = (MaxDivider * 20) - 1;
-
-        #endregion
-
-
-        #region Public methods
 
         /// <summary>
         /// Translates an integer to its nahuatl name.
         /// </summary>
         /// <param name="number">An integer between MinNumber and MaxNumber.</param>
         /// <returns>The translation of the number.</returns>
-        public static string Translate(int number)
-        {
-            return Translate(number, MaxDivider);
-        }
-
-        #endregion
-
-
-        #region Private methods
-
+        public static string Translate(int number) => Translate(number, MaxDivider);
 
         /// <summary>
         /// Translates an integer to its nahuatl name.
@@ -115,10 +94,7 @@
         /// </summary>
         /// <param name="number">A number in the acceptable range.</param>
         /// <returns>A string with the translation and a space.</returns>
-        private static string GetSpacedName(int number)
-        {
-            return GetName(number) + " ";
-        }
+        private static string GetSpacedName(int number) => GetName(number) + " ";
 
         /// <summary>
         /// If the passed number is between twenty and MaxNumber, translates it.
@@ -224,7 +200,5 @@
 
             return name;
         }
-
-        #endregion
     }
 }
